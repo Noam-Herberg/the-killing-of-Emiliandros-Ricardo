@@ -88,6 +88,11 @@ h2 {
   gap: 0.85rem;
 }
 
+.header-button-row {
+  display: flex;
+  gap: 0.75rem;
+}
+
 .landing-hero {
   min-height: 78vh;
   display: grid;
@@ -95,7 +100,7 @@ h2 {
   background:
     linear-gradient(90deg, rgba(7, 7, 6, 0.96), rgba(7, 7, 6, 0.72) 45%, rgba(7, 7, 6, 0.2)),
     linear-gradient(0deg, var(--bg), rgba(7, 7, 6, 0) 34%),
-    url("assets/characters/4fe3f929-f056-469f-8570-948c34a160f2.png") center right / cover no-repeat;
+    url("assets/Player%20Characters/4fe3f929-f056-469f-8570-948c34a160f2.png") center right / cover no-repeat;
 }
 
 .landing-copy {
@@ -427,6 +432,13 @@ h2 {
   background: linear-gradient(145deg, rgba(142, 45, 39, 0.16), rgba(28, 26, 22, 0.96));
 }
 
+.section-block.secret .prose p:first-child {
+  color: var(--text);
+  font-size: 1.8rem;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
 .confirm-overlay {
   position: fixed;
   inset: 0;
@@ -487,6 +499,11 @@ h2 {
 
   .header-actions {
     justify-items: start;
+  }
+
+  .header-button-row {
+    display: grid;
+    width: 100%;
   }
 
   .character-grid {
