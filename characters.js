@@ -4,6 +4,21 @@ const characters = [
     name: "Captain Hogan Reams",
     role: "Astra Militarum officer, Purinan 442nd Infantry",
     image: "assets/Player%20Characters/bc9409c3-c94d-4d17-b647-19dfd708cb78.png",
+    sheet: "assets/Character%20Sheets/Hogan_Reams_level_one.pdf",
+    contacts: [
+      {
+        name: "Sergeant Vale Kord",
+        description: "A grizzled veteran of the Purinan 442nd who served under both Ricardo and Reams. Kord runs security for freight convoys in the lower hive and still treats Hogan like his commanding officer, though he quietly suspects there was bad blood between the two captains."
+      },
+      {
+        name: "Sister Ophelia Grent",
+        description: "A battlefield medicae turned shrine caretaker who patched Reams together more than once during the Vaxian campaigns. Deeply loyal to Imperial veterans and often hears confessions from guardsmen too drunk or traumatised to keep secrets."
+      },
+      {
+        name: "\"Quartermaster\" Lhevin",
+        description: "An underhive black market arms dealer specialising in surplus Guard equipment. Lhevin can acquire almost anything military grade for the right price but constantly probes Hogan for information about old regimental campaigns and missing materiel."
+      }
+    ],
     publicBackground: [
       "Captain Hogan Reams is a career officer of the Astra Militarum and a veteran of the brutal campaigns fought by the Purinan 442nd Infantry. Born to a manufactorum family on Purina Maxima, Reams entered the Guard young and distinguished himself almost immediately through discipline, aggression, and an uncanny ability to keep men alive in impossible conditions.",
       "It was during the Vhalis Reach Campaign that Reams first served alongside Emiliandros Ricardo. The two men rose through the ranks together, eventually earning commissions as lieutenants within the Third Company of the 442nd. Though their temperaments differed - Ricardo charismatic and politically adept, Reams blunt and intensely professional - the pair developed a reputation as capable battlefield leaders during some of the regiment's bloodiest actions.",
@@ -41,6 +56,21 @@ const characters = [
     name: "Hammer",
     role: "Ricardo's bodyguard, enforcer, and constant shadow",
     image: "assets/Player%20Characters/ca4c2baa-3990-4ca8-b954-f1b8edad0cb0.png",
+    sheet: "assets/Character%20Sheets/Hammer_level_one.pdf",
+    contacts: [
+      {
+        name: "Little Jaks",
+        description: "A half-starved manufactorum orphan who used to sneak extra food to Hammer before Ricardo took him in. Hammer treats him like family, while Jaks worships him like a giant protector saint."
+      },
+      {
+        name: "Brakka",
+        description: "An ageing ogryn dockworker who taught Hammer how to fight properly in cargo pits and labour riots. Brakka distrusts humans instinctively and believes Ricardo must have deserved whatever happened to him."
+      },
+      {
+        name: "Mother Ghil",
+        description: "Owner of a soup kitchen near the freight districts who occasionally gave Hammer meals before he worked for Ricardo. She sees the good in him and is one of the few people capable of calming him down when enraged."
+      }
+    ],
     publicBackground: [
       "Hammer used to have another name.",
       "He does not remember it very well.",
@@ -91,6 +121,21 @@ const characters = [
     name: "Mariana 0490",
     role: "Adeptus Mechanicus initiate and archeotech recovery specialist",
     image: "assets/Player%20Characters/e8ca404d-ae5d-4477-ae71-495fce39886f.png",
+    sheet: "assets/Character%20Sheets/Mariana_0490_level_one.pdf",
+    contacts: [
+      {
+        name: "Lexmechanic Vorlen-8",
+        description: "A nervous Mechanicus data-adept who quietly supplies Mariana with restricted cogitator access and archived xenotech schematics. He admires her intellect but fears she is drifting into dangerous territory."
+      },
+      {
+        name: "Chirurgeon Hale",
+        description: "An underground medicae specialising in augmentics and illicit cybernetic procedures. Hale helped Mariana conceal several suspicious acquisitions and knows she was romantically involved with Ricardo."
+      },
+      {
+        name: "Ferrix-19",
+        description: "A sanctioned scavenger operating in collapsed manufactorum sectors searching for archeotech. Mariana occasionally hires him to recover unusual devices, though Ferrix increasingly suspects her interests are bordering on tech-heresy."
+      }
+    ],
     publicBackground: [
       "Mariana 0490 is an initiate of the Adeptus Mechanicus attached to the manufactorum enclaves of the lower hive. Officially, her duties involve systems maintenance, machine-spirit diagnostics, and the recovery of archeotech from collapsed industrial sectors.",
       "Unofficially, Mariana has a reputation for being unusually independent for a tech-adept.",
@@ -141,6 +186,21 @@ const characters = [
     name: "Scratch",
     role: "Ratling drifter, thief, hired gun, and professional survivor",
     image: "assets/Player%20Characters/1b91a2ca-91fe-43de-b176-57f6e2f3fc06.png",
+    sheet: "assets/Character%20Sheets/Scratch_level_one.pdf",
+    contacts: [
+      {
+        name: "Old Nessa",
+        description: "An elderly ratling bookmaker who runs gambling dens throughout the underhive. She acts as Scratch's occasional fence, creditor, and reluctant mother figure while constantly threatening to break his knees over unpaid debts."
+      },
+      {
+        name: "Pike",
+        description: "A twitchy obscura cook and dealer who once worked Ricardo's supply routes. Pike knows the Vipers are moving product again but is terrified enough to disappear at the slightest sign of trouble."
+      },
+      {
+        name: "\"Saint\" Morrow",
+        description: "A one-eyed ex-sniper turned bounty hunter who taught Scratch long-las shooting in exchange for smuggling work years ago. Morrow claims neutrality in hive disputes but secretly enjoys watching gangs destroy one another."
+      }
+    ],
     publicBackground: [
       "Nobody knows Scratch's real name anymore.",
       "If he even remembers it himself, he is not telling.",
@@ -190,6 +250,21 @@ const characters = [
     name: "Ehira Quihaj",
     role: "Sanctioned psyker, diviner, and protective asset",
     image: "assets/Player%20Characters/6f18f59b-84c4-48ef-a863-5b8b4af2b637.png",
+    sheet: "assets/Character%20Sheets/Ehira_Quihaj_level_one.pdf",
+    contacts: [
+      {
+        name: "Adept Celene Voss",
+        description: "A junior astropath attached to the governor's court who quietly feeds Ehira rumours, intercepted whispers, and political gossip. The two survived training aboard the Black Ships together and maintain a bond forged through shared trauma."
+      },
+      {
+        name: "Confessor Malach",
+        description: "A severe Ecclesiarchy priest responsible for monitoring sanctioned psykers on-world. Publicly he distrusts Ehira intensely, but privately he believes she may genuinely be destined for greater things within the Imperium."
+      },
+      {
+        name: "Savant Drey Halix",
+        description: "An eccentric occult scholar obsessed with forbidden manuscripts and ancient hive cults. Ehira used him as an intermediary when arranging contact concerning the Mortis Abomina, though he never learned the full truth."
+      }
+    ],
     publicBackground: [
       "Ehira Quihaj is a sanctioned psyker of the Adeptus Astra Telepathica recently assigned to the court of the planetary governor as a psychic advisor, diviner, and protective asset.",
       "Reserved, intensely formal, and unsettling to be around even by the standards of sanctioned psykers, Ehira carries herself with the rigid discipline of someone shaped almost entirely by Imperial institutions. Her shaved scalp bears the brandings and sanctioning marks of Terra itself, while the constant presence of psy-suppressant incense and warding sigils around her quarters have done little to improve her reputation among the governor's household staff.",
@@ -241,6 +316,21 @@ const characters = [
     name: "Secutor Cali Hargrove",
     role: "Planetary enforcer investigating organised crime and underhive violence",
     image: "assets/Player%20Characters/e6dc161e-413c-48bd-b1a2-97b93b08b461.png",
+    sheet: "assets/Character%20Sheets/Cali_Hargrove_level_one.pdf",
+    contacts: [
+      {
+        name: "Dispatcher Renn",
+        description: "A tired precinct vox-operator who quietly leaks Cali restricted patrol schedules, sealed reports, and internal transfer orders. Renn adored Bran Koenig and believes his death was suspicious."
+      },
+      {
+        name: "Mikka Rowe",
+        description: "A freelance crime-scene cleaner and corpse disposal specialist who works both sides of the law. Mikka often hears rumours before the securitors do and knows which gangs suddenly came into money or disappeared overnight."
+      },
+      {
+        name: "Marshal Thayne",
+        description: "An older enforcer commander who trained Cali years ago and still respects her instincts. He warns her repeatedly to stop investigating Ricardo's death before she ends up like Koenig."
+      }
+    ],
     publicBackground: [
       "Secutor Cali Hargrove is a veteran planetary enforcer attached to Precinct Fortress Axi Sub-Division Gamma, with nearly twelve years of service investigating organised crime, gang activity, and underhive violence.",
       "Unlike many enforcers, Hargrove actually still believes in the job.",
@@ -290,6 +380,19 @@ const characters = [
 
 function paragraphHtml(lines) {
   return lines.map((line) => `<p>${line}</p>`).join("");
+}
+
+function contactsHtml(contacts = []) {
+  return contacts
+    .map(
+      (contact) => `
+        <article class="contact-card">
+          <h3>${contact.name}</h3>
+          <p>${contact.description}</p>
+        </article>
+      `
+    )
+    .join("");
 }
 
 function portraitHtml(character, large = false) {
@@ -407,9 +510,11 @@ function renderDetailPage() {
   const detailName = document.querySelector("#detailName");
   const detailPortrait = document.querySelector("#detailPortrait");
   const detailPublic = document.querySelector("#detailPublic");
+  const detailContacts = document.querySelector("#detailContacts");
   const detailSecret = document.querySelector("#detailSecret");
+  const detailSheet = document.querySelector("#detailSheet");
 
-  if (!detailPage || !detailName || !detailPortrait || !detailPublic || !detailSecret) {
+  if (!detailPage || !detailName || !detailPortrait || !detailPublic || !detailContacts || !detailSecret || !detailSheet) {
     return;
   }
 
@@ -419,7 +524,11 @@ function renderDetailPage() {
   detailName.textContent = character.name;
   detailPortrait.innerHTML = portraitHtml(character, true);
   detailPublic.innerHTML = paragraphHtml(character.publicBackground);
+  detailContacts.innerHTML = contactsHtml(character.contacts);
   detailSecret.innerHTML = paragraphHtml(character.secretBackground);
+  detailSheet.innerHTML = character.sheet
+    ? `<a class="button sheet-button" href="${character.sheet}" target="_blank" rel="noopener">Open Level-One Character Sheet</a>`
+    : "";
 }
 
 renderSelectionPage();

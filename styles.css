@@ -323,6 +323,42 @@ h2 {
   pointer-events: none;
 }
 
+.sheet-link {
+  margin-top: 1rem;
+}
+
+.sheet-button {
+  width: min(360px, 100%);
+}
+
+.contact-list {
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.contact-card {
+  padding-top: 1rem;
+  border-top: 1px solid var(--line-soft);
+}
+
+.contact-card:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.contact-card h3 {
+  margin: 0 0 0.4rem;
+  color: var(--text);
+  font-size: 1.15rem;
+}
+
+.contact-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.62;
+}
+
 .gm-layout {
   max-width: 980px;
   margin: 0 auto;
@@ -404,6 +440,193 @@ h2 {
 .gm-notes ul {
   margin-top: 0;
   padding-left: 1.25rem;
+}
+
+.npc-page[hidden] {
+  display: none;
+}
+
+.npc-page {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.npc-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.npc-card {
+  display: grid;
+  grid-template-columns: minmax(220px, 300px) minmax(0, 1fr);
+  overflow: visible;
+  border: 1px solid var(--line-soft);
+  border-radius: 8px;
+  background: rgba(28, 26, 22, 0.94);
+}
+
+.npc-portrait {
+  min-height: 100%;
+  overflow: hidden;
+  border-radius: 8px 0 0 8px;
+  background: var(--black);
+}
+
+.npc-portrait img {
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  display: block;
+  object-fit: cover;
+}
+
+.npc-body {
+  min-width: 0;
+  padding: 1.25rem;
+}
+
+.npc-type {
+  margin: 0.45rem 0 1rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.npc-summary {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+  color: var(--muted);
+  font-family: Arial, sans-serif;
+  font-size: 0.85rem;
+}
+
+.npc-summary span {
+  padding: 0.55rem;
+  border: 1px solid var(--line-soft);
+  border-radius: 6px;
+  background: rgba(7, 7, 6, 0.28);
+}
+
+.npc-stats {
+  display: grid;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+  gap: 0.35rem;
+  margin-top: 1rem;
+}
+
+.npc-stat {
+  display: grid;
+  gap: 0.2rem;
+  justify-items: center;
+  padding: 0.5rem 0.3rem;
+  border: 1px solid var(--line-soft);
+  border-radius: 6px;
+  background: var(--black);
+}
+
+.npc-stat span {
+  color: var(--gold);
+  font-family: Arial, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 800;
+}
+
+.npc-stat strong {
+  font-size: 1.05rem;
+}
+
+.npc-columns,
+.npc-notes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.1rem;
+}
+
+.npc-columns h3,
+.npc-notes h3 {
+  margin: 0 0 0.4rem;
+  color: var(--gold);
+  font-family: Arial, sans-serif;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+}
+
+.npc-columns ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.talent-tip {
+  position: relative;
+  border-bottom: 1px dotted rgba(197, 154, 66, 0.72);
+  color: var(--text);
+  cursor: help;
+}
+
+.talent-tip::after {
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 0.45rem);
+  z-index: 100;
+  width: min(22rem, 80vw);
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--line-soft);
+  border-radius: 6px;
+  background: #070706;
+  color: var(--text);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
+  content: attr(data-effect);
+  font-family: Arial, sans-serif;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(0.25rem);
+  transition: opacity 120ms ease, transform 120ms ease;
+}
+
+.talent-tip:hover::after,
+.talent-tip:focus-visible::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.npc-notes p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.npc-table-wrap {
+  width: 100%;
+  margin-top: 1.1rem;
+  overflow-x: auto;
+}
+
+.npc-weapons {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+  color: var(--muted);
+  font-family: Arial, sans-serif;
+  font-size: 0.78rem;
+}
+
+.npc-weapons th,
+.npc-weapons td {
+  padding: 0.55rem;
+  border: 1px solid var(--line-soft);
+  text-align: left;
+  vertical-align: top;
+}
+
+.npc-weapons th {
+  color: var(--gold);
+  background: rgba(7, 7, 6, 0.48);
+  text-transform: uppercase;
 }
 
 .detail-layout {
@@ -512,6 +735,28 @@ h2 {
 
   .bio-panel {
     position: static;
+  }
+
+  .npc-card {
+    grid-template-columns: 1fr;
+  }
+
+  .npc-portrait {
+    border-radius: 8px 8px 0 0;
+  }
+
+  .npc-portrait img {
+    max-height: 420px;
+  }
+
+  .npc-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .npc-columns,
+  .npc-notes,
+  .npc-summary {
+    grid-template-columns: 1fr;
   }
 }
 
