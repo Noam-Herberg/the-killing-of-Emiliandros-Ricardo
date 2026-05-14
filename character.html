@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Requias Sector One-Shot - Character Dossier</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header compact">
+      <div>
+        <p class="eyebrow">Sealed Character Dossier</p>
+        <h1 id="detailName">Character Details</h1>
+      </div>
+      <a class="button secondary" href="selection.html">Back to Selection</a>
+    </header>
+
+    <main class="detail-layout" id="detailPage">
+      <section class="detail-portrait" id="detailPortrait"></section>
+
+      <section class="dossier">
+        <div class="section-block">
+          <p class="eyebrow">Public File</p>
+          <h2>Known History</h2>
+          <div id="detailPublic" class="prose"></div>
+        </div>
+
+        <div class="section-block secret">
+          <p class="eyebrow">Private Mission - Eyes Only</p>
+          <h2>Hidden Backstory and Objective</h2>
+          <div id="detailSecret" class="prose"></div>
+        </div>
+      </section>
+    </main>
+
+    <script src="characters.js"></script>
+  </body>
+</html>

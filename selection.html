@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Requias Sector One-Shot - Character Selection</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="site-header">
+      <div>
+        <p class="eyebrow">Inquisitorial Dossier Access</p>
+        <h1>Choose Your Character</h1>
+      </div>
+      <div class="header-actions">
+        <p class="header-note">Select a portrait to review the public file, then confirm your choice to receive sealed orders.</p>
+        <a class="button secondary" href="gm.html">GM Notes</a>
+      </div>
+    </header>
+
+    <main class="selection-layout">
+      <section class="character-grid" id="characterGrid" aria-label="Character options"></section>
+
+      <aside class="bio-panel" id="bioPanel">
+        <p class="eyebrow">Public Background</p>
+        <h2 id="bioName">Awaiting Selection</h2>
+        <div id="bioText" class="bio-copy">
+          <p>Choose a character portrait to open their public dossier.</p>
+        </div>
+        <a class="button disabled" id="selectButton" href="#" aria-disabled="true">Select Character</a>
+      </aside>
+    </main>
+
+    <div class="confirm-overlay" id="confirmOverlay" hidden>
+      <section class="confirm-dialog" role="dialog" aria-modal="true" aria-labelledby="confirmTitle">
+        <p class="eyebrow">Sealed Orders Warning</p>
+        <h2 id="confirmTitle">Only proceed if this is your character.</h2>
+        <p id="confirmCopy">The next page contains private background and objectives that are secret to this character. Do not continue unless you are playing them.</p>
+        <div class="confirm-actions">
+          <button class="button secondary" type="button" id="cancelConfirm">Go Back</button>
+          <button class="button danger" type="button" id="proceedConfirm">Open Sealed File</button>
+        </div>
+      </section>
+    </div>
+
+    <script src="characters.js"></script>
+  </body>
+</html>
