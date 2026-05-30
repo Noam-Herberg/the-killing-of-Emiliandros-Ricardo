@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Requias Sector One-Shot - Character Selection</title>
-    <link rel="stylesheet" href="styles.css?v=20260515-npc-tooltips">
+    <link rel="stylesheet" href="styles.css?v=20260530-dashboard">
   </head>
   <body>
     <header class="site-header">
@@ -16,6 +16,7 @@
         <p class="header-note">Select a portrait to review the public file, then confirm your choice to receive sealed orders.</p>
         <div class="header-button-row">
           <a class="button secondary" href="index.html">Back to Summary</a>
+          <a class="button secondary" href="rules.html">Core Rules Reminder</a>
           <a class="button secondary" href="gm.html">GM Notes</a>
         </div>
       </div>
@@ -30,7 +31,10 @@
         <div id="bioText" class="bio-copy">
           <p>Choose a character portrait to open their public dossier.</p>
         </div>
-        <a class="button disabled" id="selectButton" href="#" aria-disabled="true">Select Character</a>
+        <div class="selection-actions">
+          <a class="button disabled" id="selectButton" href="#" aria-disabled="true">Select Character</a>
+          <a class="button secondary disabled" id="dashboardButton" href="#" aria-disabled="true">Open Dashboard</a>
+        </div>
       </aside>
     </main>
 
@@ -46,6 +50,6 @@
       </section>
     </div>
 
-    <script src="characters.js?v=20260515-npc-tooltips"></script>
+    <script src="characters.js?v=20260530-dashboard"></script>
   </body>
 </html>

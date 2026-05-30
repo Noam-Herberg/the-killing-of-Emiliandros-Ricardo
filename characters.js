@@ -422,12 +422,13 @@ function renderSelectionPage() {
   const bioName = document.querySelector("#bioName");
   const bioText = document.querySelector("#bioText");
   const selectButton = document.querySelector("#selectButton");
+  const dashboardButton = document.querySelector("#dashboardButton");
   const confirmOverlay = document.querySelector("#confirmOverlay");
   const cancelConfirm = document.querySelector("#cancelConfirm");
   const proceedConfirm = document.querySelector("#proceedConfirm");
   let selectedCharacterUrl = "";
 
-  if (!grid || !bioName || !bioText || !selectButton) {
+  if (!grid || !bioName || !bioText || !selectButton || !dashboardButton) {
     return;
   }
 
@@ -461,8 +462,11 @@ function renderSelectionPage() {
     bioText.innerHTML = paragraphHtml(character.publicBackground);
     selectedCharacterUrl = `character.html?id=${encodeURIComponent(character.id)}`;
     selectButton.href = selectedCharacterUrl;
+    dashboardButton.href = `dashboard.html?id=${encodeURIComponent(character.id)}`;
     selectButton.classList.remove("disabled");
+    dashboardButton.classList.remove("disabled");
     selectButton.removeAttribute("aria-disabled");
+    dashboardButton.removeAttribute("aria-disabled");
   });
 
   if (!confirmOverlay || !cancelConfirm || !proceedConfirm) {
@@ -527,7 +531,12 @@ function renderDetailPage() {
   detailContacts.innerHTML = contactsHtml(character.contacts);
   detailSecret.innerHTML = paragraphHtml(character.secretBackground);
   detailSheet.innerHTML = character.sheet
-    ? `<a class="button sheet-button" href="${character.sheet}" target="_blank" rel="noopener">Open Level-One Character Sheet</a>`
+    ? `
+      <div class="sheet-actions">
+        <a class="button sheet-button" href="dashboard.html?id=${encodeURIComponent(character.id)}">Open Editable Dashboard</a>
+        <a class="button secondary sheet-button" href="${character.sheet}" target="_blank" rel="noopener">Open PDF Sheet</a>
+      </div>
+    `
     : "";
 }
 
