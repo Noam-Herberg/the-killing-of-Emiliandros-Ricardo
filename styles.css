@@ -406,75 +406,6 @@ h2 {
   line-height: 1.58;
 }
 
-.rules-steps {
-  margin: 1rem 0 0;
-  padding-left: 1.25rem;
-  color: var(--muted);
-  line-height: 1.58;
-}
-
-.rules-steps li + li {
-  margin-top: 0.45rem;
-}
-
-.rules-filter {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.55rem;
-  margin-top: 1rem;
-}
-
-.rules-filter-button {
-  min-height: 2.35rem;
-  border: 1px solid var(--line-soft);
-  border-radius: 6px;
-  background: rgba(8, 8, 7, 0.72);
-  color: var(--muted);
-  cursor: pointer;
-  font-family: Arial, sans-serif;
-  font-size: 0.78rem;
-  font-weight: 800;
-  padding: 0 0.85rem;
-  text-transform: uppercase;
-}
-
-.rules-filter-button.active,
-.rules-filter-button:hover,
-.rules-filter-button:focus-visible {
-  border-color: var(--gold);
-  color: var(--text);
-  outline: none;
-}
-
-.detailed-rule-card[hidden] {
-  display: none;
-}
-
-.rules-list {
-  display: grid;
-  gap: 0.7rem;
-  margin: 1rem 0 0;
-}
-
-.rules-list dt {
-  color: var(--gold);
-  font-family: Arial, sans-serif;
-  font-size: 0.78rem;
-  font-weight: 800;
-  text-transform: uppercase;
-}
-
-.rules-list dd {
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.55;
-}
-
-.rules-list.compact {
-  grid-template-columns: minmax(8rem, 0.8fr) minmax(0, 1.2fr);
-  gap: 0.55rem 0.8rem;
-}
-
 .dashboard-hero {
   display: grid;
   grid-template-columns: minmax(180px, 260px) minmax(0, 1fr);
@@ -1278,10 +1209,6 @@ textarea:focus {
   .rules-grid,
   .dashboard-grid,
   .dashboard-hero {
-    grid-template-columns: 1fr;
-  }
-
-  .rules-list.compact {
     grid-template-columns: 1fr;
   }
 
