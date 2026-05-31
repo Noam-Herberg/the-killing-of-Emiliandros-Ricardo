@@ -406,6 +406,17 @@ h2 {
   line-height: 1.58;
 }
 
+.rules-steps {
+  margin: 1rem 0 0;
+  padding-left: 1.25rem;
+  color: var(--muted);
+  line-height: 1.58;
+}
+
+.rules-steps li + li {
+  margin-top: 0.45rem;
+}
+
 .rules-filter {
   display: flex;
   flex-wrap: wrap;
