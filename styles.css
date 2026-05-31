@@ -751,6 +751,38 @@ textarea:focus {
   margin-top: 1rem;
 }
 
+.dashboard-tip {
+  position: relative;
+}
+
+.dashboard-tip::after {
+  content: attr(data-effect);
+  position: absolute;
+  left: 0;
+  bottom: calc(100% + 0.45rem);
+  z-index: 20;
+  width: min(22rem, calc(100vw - 3rem));
+  padding: 0.65rem 0.75rem;
+  border: 1px solid rgba(176, 138, 70, 0.58);
+  border-radius: 6px;
+  background: rgba(10, 9, 8, 0.98);
+  color: var(--text);
+  box-shadow: 0 0.8rem 1.8rem rgba(0, 0, 0, 0.44);
+  font-family: Arial, sans-serif;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(0.25rem);
+  transition: opacity 140ms ease, transform 140ms ease;
+}
+
+.dashboard-tip:hover::after,
+.dashboard-tip:focus-within::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .gm-layout {
   max-width: 980px;
   margin: 0 auto;

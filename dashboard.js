@@ -15,6 +15,110 @@ function loadSheet() {
 
 let activeSheet = loadSheet();
 
+const dashboardTalentEffects = {
+  "Air of Authority": "When making Command tests, may affect extra targets equal to Fellowship bonus. Good for directing groups under pressure.",
+  "Ambidextrous": "Reduces penalties for using the off hand. Useful for two-weapon fighting or handling gear while armed.",
+  "Berserk Charge": "Gains +10 Weapon Skill when charging.",
+  "Binary Chatter": "Gains +10 to interact with servitors, servo-skulls, and similar machine servants.",
+  "Catfall": "Reduces falling damage and improves control when dropping or landing.",
+  "Combat Formation": "May use Intelligence bonus for Initiative rolls, and allies may benefit if coordinated before combat.",
+  "Deadeye Shot": "Reduces called-shot penalties by 10.",
+  "Heightened Senses (Hearing)": "Gains +10 to tests relying on hearing.",
+  "Iron Jaw": "May test Toughness to ignore being Stunned.",
+  "Mechanicus Implants": "Has the standard Tech-Priest implants and counts as a servant of the Machine God for relevant rules and gear.",
+  "Nerves of Steel": "May reroll failed Willpower tests to avoid or recover from Pinning.",
+  "Psy Rating 2": "Psyker power level 2. Used when manifesting psychic powers and determining psychic strength.",
+  "Quick Draw": "Can ready a pistol, basic weapon, or one-handed melee weapon as a Free Action.",
+  "Rapid Reload": "Halves reload times, rounding down.",
+  "Resistance (Fear)": "Gains +10 to resist Fear tests.",
+  "Sanctioned Psyker": "Legally sanctioned Imperial psyker. Can use psychic powers, but still risks Perils of the Warp.",
+  "Strong Minded": "May reroll failed Willpower tests to resist psychic powers that affect the mind.",
+  "Technical Knock": "Once per round, may unjam a weapon as a Half Action.",
+  "Warp Sense": "May use Psyniscience as a Free Action and perceive warp disturbances more readily.",
+  "Weapon Training": "Can use the listed weapon groups without the untrained weapon penalty."
+};
+
+const dashboardSkillDetails = {
+  Acrobatics: "Used for balance, tumbling, escaping bonds, and reducing hazards from movement.",
+  Athletics: "Used for climbing, swimming, jumping, lifting, and feats of physical force.",
+  Awareness: "Used to notice danger, hidden details, ambushes, suspicious behavior, and environmental clues.",
+  Charm: "Used to persuade, befriend, flatter, and improve an NPC's attitude.",
+  Command: "Used to issue orders, coordinate allies, intimidate troops into discipline, and control groups.",
+  "Common Lore": "Knowledge of common Imperial institutions, cultures, places, or professions. Specific field matters.",
+  Deceive: "Used to lie, disguise intent, misdirect, and maintain false identities.",
+  Dodge: "Reaction skill used to avoid attacks, blasts, falling hazards, and other immediate danger.",
+  "Forbidden Lore": "Dangerous or restricted knowledge. Specific field determines what secrets the character understands.",
+  Inquiry: "Used to gather information through conversation, rumor, questioning, and local investigation.",
+  Interrogation: "Used to extract information through pressure, threats, pain, or formal questioning.",
+  Intimidate: "Used to coerce, threaten, frighten, or force compliance.",
+  Linguistics: "Used to understand, read, or communicate in specific languages or coded forms.",
+  Logic: "Used for deduction, puzzles, pattern analysis, ciphers, and structured reasoning.",
+  Medicae: "Used for first aid, treating injuries, diagnosing illness, and stabilizing the dying.",
+  Navigate: "Used to find routes, avoid becoming lost, and interpret maps or terrain.",
+  Operate: "Used to drive or pilot vehicles of the listed type.",
+  Psyniscience: "Used to sense psychic phenomena, warp disturbances, daemonic traces, and active powers.",
+  Scrutiny: "Used to read people, detect lies, notice suspicious motives, and assess emotional states.",
+  Security: "Used to pick locks, bypass alarms, defeat restraints, and handle physical security systems.",
+  "Scholastic Lore": "Formal academic knowledge. Specific field determines the useful facts.",
+  "Sleight of Hand": "Used to palm objects, pick pockets, conceal small items, and perform subtle manual tricks.",
+  Stealth: "Used to hide, move quietly, shadow targets, and avoid detection.",
+  Survival: "Used to track, forage, endure hostile environments, and read wilderness or underhive signs.",
+  "Tech-Use": "Used to repair, understand, activate, sabotage, or interface with machines and cogitators.",
+  Trade: "Professional craft or technical practice. Specific field determines what work can be done."
+};
+
+const dashboardGearDetails = {
+  "Armoured bodyglove": "Concealable protective undersuit, useful when heavier armour would draw attention.",
+  "Armoured undersuit": "Protective layer worn beneath robes or clothing.",
+  "Badge, officially off-case": "Cali's enforcer authority, politically dangerous because she has no official backing here.",
+  "Blindfold": "Psykana restraint or focus tool; useful for unsettling people and ritual discipline.",
+  "Breaching tools": "Tools for forcing doors, locks, panels, vents, and barricades.",
+  "Cargo chains": "Heavy chains usable for hauling, binding, climbing, or improvised intimidation.",
+  "Case notes on Koenig": "Cali's copied notes on Bran Koenig's death and suspicious securitor transfers.",
+  "Chrono": "Timepiece useful for checking patrol timings, alibis, and synchronized operations.",
+  "Combi-tool": "Mechanicus multi-tool. Grants +10 to appropriate Tech-Use tests.",
+  "Data-scrolls": "Records, notes, or formal writs that can carry evidence or occult references.",
+  Dataslate: "Portable data device used for notes, records, maps, and copied files.",
+  Dataspikes: "Intrusion tools for bypassing cogitator security and extracting data.",
+  "Emperor's Tarot": "Divinatory tool and religious focus, especially useful for psykers and occult investigation.",
+  "Enforcer flak coat": "Protective law-enforcement armour, usually covering body and limbs.",
+  "Evidence satchel": "Official-looking case for securing physical evidence, or making evidence disappear.",
+  "False ident papers": "Forgery kit or false identity documents useful for passing checkpoints.",
+  "Food ration tin": "Basic food supply; also a small personal comfort for Hammer.",
+  "Forbidden research notes": "Mariana's dangerous xenotech notes. Incriminating if discovered by the Mechanicus.",
+  "Glow-globes": "Portable light sources for dark habs, tunnels, and underhive spaces.",
+  "Grapnel launcher": "Tool for climbing, crossing gaps, entering windows, or making quick escapes.",
+  "Guard flak coat": "Military-grade flak protection, practical and visibly veteran-associated.",
+  "Heavy flak harness": "Heavy protective harness for brutal close-range fighting.",
+  "Hexagrammic charms": "Wards and devotional charms against warp influence, fear, and corruption.",
+  "Infra-goggles": "Allow vision in darkness by detecting heat signatures.",
+  "Lho-sticks": "Common smoking vice; useful as comfort, bribe, or social prop.",
+  "Lock picks": "Tools for opening simple locks and bypassing mundane security.",
+  "Lucky charm": "Personal keepsake with no guaranteed mechanical effect, but it matters to the owner.",
+  Magnoculars: "Optical magnification for scouting, surveillance, and battlefield observation.",
+  Manacles: "Restraints for captives, suspects, or anyone Hammer can hold still long enough.",
+  "Mesh-lined coat": "Protective coat with concealed mesh armour.",
+  "Micro-bead": "Short-range comms bead for squad communication.",
+  "Obscura withdrawal shakes": "Not helpful gear: Scratch is suffering withdrawal symptoms and needs a fix badly.",
+  "Oversized rebreather": "Breathing mask fitted for Hammer, useful against smoke, gas, and toxic air.",
+  "Photo-visor": "Vision gear that helps with darkness, glare, or forensic scene work.",
+  "Pict recorder": "Records stills or video evidence. Useful for preserving proof before it disappears.",
+  "Portable cogitator": "Small computing device for analysis, records, encryption work, and technical notes.",
+  "Psy-focus Staff": "Focus object for psychic discipline and a usable staff in melee.",
+  "Psy-suppressant incense": "Ritual incense used to calm or contain psychic disturbance.",
+  "Rebreather": "Breathing mask useful against smoke, gas, toxins, and bad hive air.",
+  "Reclaimed respirator": "Patchwork breathing gear useful in smoke, dust, and sump air.",
+  "Reinforced Mechanicus robes": "Tech-adept robes with protective plating and concealed utility fittings.",
+  "Reinforced psykana robes": "Protective robes marked with sanctioning, wards, and Imperial restraint symbols.",
+  Restraints: "Manacles or binding straps for prisoners.",
+  "Sacred unguents": "Ritual oils used to appease machine spirits during repairs or rites.",
+  Sedatives: "Medical or psykana drugs used to calm, restrain, or treat unstable subjects.",
+  "Shell bandolier": "Ready ammunition for shotguns or similar shell-fed weapons.",
+  "Stimm injector": "Combat drug injector; can keep someone moving briefly at a cost.",
+  "Underhive maps": "Local maps, marked routes, safe passages, and dangerous shortcuts.",
+  "Vox-scrambler": "Device for masking or disrupting vox transmissions."
+};
+
 function field(name, value, type = "text") {
   return `
     <label class="field-control">
@@ -149,15 +253,53 @@ function renderWeapons() {
 }
 
 function renderTagEditor(id, values) {
+  const listType = id.slice(1).replace("Editor", "");
   document.querySelector(id).innerHTML = values
     .map(
       (value, index) => `
-        <label class="tag-field">
+        <label class="tag-field dashboard-tip" data-effect="${escapeHtml(lookupDashboardDetail(listType, value))}">
           <input data-list="${id.slice(1)}" data-index="${index}" value="${value}">
         </label>
       `
     )
     .join("");
+}
+
+function escapeHtml(value) {
+  return String(value || "")
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+function baseRuleName(value) {
+  return String(value || "")
+    .replace(/\s\+\d+$/, "")
+    .replace(/\s\(.+\)$/, "")
+    .trim();
+}
+
+function lookupDashboardDetail(type, value) {
+  const cleanValue = String(value || "").trim();
+  const baseName = baseRuleName(cleanValue);
+
+  if (type === "skill") {
+    return dashboardSkillDetails[baseName] || dashboardSkillDetails[baseName.replace(/\s\(.+\)$/, "")] || "No quick-reference skill note has been entered yet.";
+  }
+
+  if (type === "talent") {
+    if (cleanValue.startsWith("Weapon Training")) {
+      return dashboardTalentEffects["Weapon Training"];
+    }
+    return dashboardTalentEffects[cleanValue] || dashboardTalentEffects[baseName] || "No quick-reference talent or trait note has been entered yet.";
+  }
+
+  if (type === "gear") {
+    return dashboardGearDetails[cleanValue] || dashboardGearDetails[baseName] || "No quick-reference gear note has been entered yet.";
+  }
+
+  return "";
 }
 
 function renderDashboard() {
