@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Requias Sector One-Shot - Character Dashboard</title>
-    <link rel="stylesheet" href="styles.css?v=20260530-dashboard">
+    <link rel="stylesheet" href="styles.css?v=20260531-export">
   </head>
   <body>
     <header class="site-header compact">
@@ -45,6 +45,17 @@
         </div>
 
         <div class="section-block dashboard-card wide">
+          <p class="eyebrow">Save Transfer</p>
+          <h2>Export / Import</h2>
+          <p class="dashboard-help">Download this character's current dashboard state as a JSON save file, or upload one later to continue from another browser or session.</p>
+          <div class="import-export-actions">
+            <button class="button" type="button" id="exportDashboard">Download Save File</button>
+            <label class="button secondary import-button" for="importDashboard">Upload Save File</label>
+            <input class="file-input" id="importDashboard" type="file" accept="application/json,.json">
+          </div>
+        </div>
+
+        <div class="section-block dashboard-card wide">
           <p class="eyebrow">Weapons</p>
           <div class="editable-table-wrap">
             <table class="editable-table" id="weaponEditor"></table>
@@ -74,8 +85,8 @@
       </section>
     </main>
 
-    <script src="characters.js?v=20260530-dashboard"></script>
-    <script src="character-sheets.js?v=20260530-dashboard"></script>
-    <script src="dashboard.js?v=20260530-dashboard"></script>
+    <script src="characters.js?v=20260531-export"></script>
+    <script src="character-sheets.js?v=20260531-export"></script>
+    <script src="dashboard.js?v=20260531-export"></script>
   </body>
 </html>

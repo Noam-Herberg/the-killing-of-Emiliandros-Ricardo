@@ -132,6 +132,57 @@ function saveDashboard() {
   document.querySelector("#saveNote").textContent = "Saved in this browser.";
 }
 
+function exportDashboard() {
+  collectDashboard();
+  const payload = {
+    format: "ricardo-character-dashboard",
+    version: 1,
+    characterId: character.id,
+    characterName: character.name,
+    exportedAt: new Date().toISOString(),
+    sheet: activeSheet
+  };
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = `${character.id}-dashboard-save.json`;
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+  document.querySelector("#saveNote").textContent = "Save file downloaded.";
+}
+
+function importDashboard(event) {
+  const file = event.target.files[0];
+  if (!file) {
+    return;
+  }
+
+  const reader = new FileReader();
+  reader.addEventListener("load", () => {
+    try {
+      const payload = JSON.parse(reader.result);
+      const importedSheet = payload.sheet || payload;
+
+      if (!importedSheet.stats || !importedSheet.resources || !importedSheet.weapons) {
+        throw new Error("Invalid dashboard save.");
+      }
+
+      activeSheet = importedSheet;
+      localStorage.setItem(storageKey, JSON.stringify(activeSheet));
+      renderDashboard();
+      document.querySelector("#saveNote").textContent = "Save file imported.";
+    } catch (error) {
+      document.querySelector("#saveNote").textContent = "Import failed: invalid save file.";
+    } finally {
+      event.target.value = "";
+    }
+  });
+  reader.readAsText(file);
+}
+
 function resetDashboard() {
   activeSheet = clone(baseSheet);
   localStorage.removeItem(storageKey);
@@ -141,5 +192,7 @@ function resetDashboard() {
 
 document.querySelector("#saveDashboard").addEventListener("click", saveDashboard);
 document.querySelector("#resetDashboard").addEventListener("click", resetDashboard);
+document.querySelector("#exportDashboard").addEventListener("click", exportDashboard);
+document.querySelector("#importDashboard").addEventListener("change", importDashboard);
 
 renderDashboard();
