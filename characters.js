@@ -422,13 +422,12 @@ function renderSelectionPage() {
   const bioName = document.querySelector("#bioName");
   const bioText = document.querySelector("#bioText");
   const selectButton = document.querySelector("#selectButton");
-  const dashboardButton = document.querySelector("#dashboardButton");
   const confirmOverlay = document.querySelector("#confirmOverlay");
   const cancelConfirm = document.querySelector("#cancelConfirm");
   const proceedConfirm = document.querySelector("#proceedConfirm");
   let selectedCharacterUrl = "";
 
-  if (!grid || !bioName || !bioText || !selectButton || !dashboardButton) {
+  if (!grid || !bioName || !bioText || !selectButton) {
     return;
   }
 
@@ -462,11 +461,8 @@ function renderSelectionPage() {
     bioText.innerHTML = paragraphHtml(character.publicBackground);
     selectedCharacterUrl = `character.html?id=${encodeURIComponent(character.id)}`;
     selectButton.href = selectedCharacterUrl;
-    dashboardButton.href = `dashboard.html?id=${encodeURIComponent(character.id)}`;
     selectButton.classList.remove("disabled");
-    dashboardButton.classList.remove("disabled");
     selectButton.removeAttribute("aria-disabled");
-    dashboardButton.removeAttribute("aria-disabled");
   });
 
   if (!confirmOverlay || !cancelConfirm || !proceedConfirm) {
