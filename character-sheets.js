@@ -66,7 +66,12 @@ const characterSheets = {
     skills: ["Awareness", "Forbidden Lore (Psykers)", "Inquiry", "Linguistics (High Gothic)", "Medicae", "Psyniscience", "Scholastic Lore (Occult)", "Scrutiny"],
     talents: ["Psy Rating 2", "Sanctioned Psyker", "Strong Minded", "Warp Sense", "Weapon Training (Las, Low-Tech)"],
     gear: ["Reinforced psykana robes", "Armoured bodyglove", "Hexagrammic charms", "Emperor's Tarot", "Sedatives", "Data-scrolls", "Blindfold", "Psy-suppressant incense"],
-    notes: "Sanctioned psyker. Secretly engineered sale of the Mortis Abomina as bait. Powers: Psychic Shriek, Sense Presence, Forewarning."
+    psychicPowers: [
+      { name: "Psychic Shriek", action: "Half Action", focus: "Opposed Willpower", range: "10m x Psy Rating", effect: "Telepathic attack that tears at the target's mind. Use as Ehira's direct offensive power when subtlety is gone." },
+      { name: "Sense Presence", action: "Half Action", focus: "Psyniscience", range: "Psy Rating km", effect: "Detects nearby minds and their rough number, direction, and type. Useful for ambushes, hidden rooms, and watchers." },
+      { name: "Forewarning", action: "Half Action", focus: "Psyniscience", range: "Self / aura", effect: "Brief divinatory protection. Use before violence starts to help Ehira and nearby allies avoid harm." }
+    ],
+    notes: "Sanctioned psyker. Secretly engineered sale of the Mortis Abomina as bait."
   },
   "cali-hargrove": {
     meta: { homeWorld: "Hive World", background: "Adeptus Arbites", role: "Seeker", wounds: 13, fate: 3, armour: "Head 2, Arms 4, Body 4, Legs 3", movement: "Half 3, Full 6, Charge 9, Run 18" },

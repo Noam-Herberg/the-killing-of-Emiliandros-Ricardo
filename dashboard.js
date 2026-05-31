@@ -10,7 +10,23 @@ function clone(value) {
 
 function loadSheet() {
   const saved = localStorage.getItem(storageKey);
-  return saved ? JSON.parse(saved) : clone(baseSheet);
+  if (!saved) {
+    return clone(baseSheet);
+  }
+
+  const parsed = JSON.parse(saved);
+  return {
+    ...clone(baseSheet),
+    ...parsed,
+    meta: { ...clone(baseSheet.meta), ...(parsed.meta || {}) },
+    stats: { ...clone(baseSheet.stats), ...(parsed.stats || {}) },
+    resources: { ...clone(baseSheet.resources), ...(parsed.resources || {}) },
+    weapons: parsed.weapons || clone(baseSheet.weapons),
+    skills: parsed.skills || clone(baseSheet.skills),
+    talents: parsed.talents || clone(baseSheet.talents),
+    gear: parsed.gear || clone(baseSheet.gear),
+    psychicPowers: parsed.psychicPowers || clone(baseSheet.psychicPowers || [])
+  };
 }
 
 let activeSheet = loadSheet();
@@ -252,6 +268,48 @@ function renderWeapons() {
   `;
 }
 
+function renderPowers() {
+  const powersCard = document.querySelector("#powersCard");
+  const powerEditor = document.querySelector("#powerEditor");
+  const powers = activeSheet.psychicPowers || [];
+
+  if (!powersCard || !powerEditor) {
+    return;
+  }
+
+  powersCard.hidden = powers.length === 0;
+  powerEditor.innerHTML = powers
+    .map(
+      (power, index) => `
+        <article class="power-card">
+          <label class="field-control">
+            <span>Power</span>
+            <input data-power="${index}" data-power-field="name" value="${power.name || ""}">
+          </label>
+          <div class="power-meta-grid">
+            <label class="field-control">
+              <span>Action</span>
+              <input data-power="${index}" data-power-field="action" value="${power.action || ""}">
+            </label>
+            <label class="field-control">
+              <span>Focus</span>
+              <input data-power="${index}" data-power-field="focus" value="${power.focus || ""}">
+            </label>
+            <label class="field-control">
+              <span>Range</span>
+              <input data-power="${index}" data-power-field="range" value="${power.range || ""}">
+            </label>
+          </div>
+          <label class="field-control">
+            <span>Effect</span>
+            <textarea data-power="${index}" data-power-field="effect" rows="3">${power.effect || ""}</textarea>
+          </label>
+        </article>
+      `
+    )
+    .join("");
+}
+
 function renderTagEditor(id, values) {
   const listType = id.slice(1).replace("Editor", "");
   document.querySelector(id).innerHTML = values
@@ -315,6 +373,7 @@ function renderDashboard() {
   renderStats();
   renderResources();
   renderWeapons();
+  renderPowers();
   renderTagEditor("#skillEditor", activeSheet.skills);
   renderTagEditor("#talentEditor", activeSheet.talents);
   renderTagEditor("#gearEditor", activeSheet.gear);
@@ -341,6 +400,14 @@ function collectDashboard() {
 
   document.querySelectorAll("[data-weapon]").forEach((input) => {
     activeSheet.weapons[Number(input.dataset.weapon)][input.dataset.weaponField] = input.value;
+  });
+
+  document.querySelectorAll("[data-power]").forEach((input) => {
+    const powerIndex = Number(input.dataset.power);
+    if (!activeSheet.psychicPowers || !activeSheet.psychicPowers[powerIndex]) {
+      return;
+    }
+    activeSheet.psychicPowers[powerIndex][input.dataset.powerField] = input.value.trim();
   });
 
   const lists = {
