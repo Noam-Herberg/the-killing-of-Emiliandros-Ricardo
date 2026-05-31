@@ -38,6 +38,57 @@ function renderResources() {
     .join("");
 }
 
+function parseArmour(armourText) {
+  const values = { Head: "", Arms: "", Body: "", Legs: "" };
+  String(armourText || "")
+    .split(",")
+    .map((part) => part.trim())
+    .forEach((part) => {
+      const match = part.match(/^(Head|Arms|Body|Legs)\s+(.+)$/i);
+      if (!match) {
+        return;
+      }
+      const key = Object.keys(values).find((location) => location.toLowerCase() === match[1].toLowerCase());
+      values[key] = match[2].trim();
+    });
+  return values;
+}
+
+function formatArmour(values) {
+  return ["Head", "Arms", "Body", "Legs"]
+    .map((location) => `${location} ${values[location] || 0}`)
+    .join(", ");
+}
+
+function renderVitals() {
+  const armour = parseArmour(activeSheet.meta.armour);
+  document.querySelector("#dashboardVitals").innerHTML = `
+    <label class="movement-panel">
+      <span>Movement</span>
+      <input data-meta-field="movement" value="${activeSheet.meta.movement || ""}" aria-label="Movement values">
+    </label>
+    <div class="armour-panel" aria-label="Armour by body location">
+      <span class="armour-title">Armour</span>
+      <label class="armour-node head">
+        <span>Head</span>
+        <input data-armour-location="Head" type="number" min="0" value="${armour.Head}">
+      </label>
+      <label class="armour-node arms">
+        <span>Arms</span>
+        <input data-armour-location="Arms" type="number" min="0" value="${armour.Arms}">
+      </label>
+      <label class="armour-node body">
+        <span>Body</span>
+        <input data-armour-location="Body" type="number" min="0" value="${armour.Body}">
+      </label>
+      <label class="armour-node legs">
+        <span>Legs</span>
+        <input data-armour-location="Legs" type="number" min="0" value="${armour.Legs}">
+      </label>
+    </div>
+  `;
+}
+
 function renderWeapons() {
   const rows = activeSheet.weapons
     .map(
@@ -85,11 +136,12 @@ function renderDashboard() {
   document.querySelector("#dashboardName").textContent = character.name;
   document.querySelector("#dashboardTitle").textContent = character.name;
   document.querySelector("#dashboardRole").textContent = character.role;
-  document.querySelector("#dashboardMeta").textContent = `${activeSheet.meta.homeWorld} | ${activeSheet.meta.background} | ${activeSheet.meta.role} | ${activeSheet.meta.armour}`;
+  document.querySelector("#dashboardMeta").textContent = `${activeSheet.meta.homeWorld} | ${activeSheet.meta.background} | ${activeSheet.meta.role}`;
   document.querySelector("#dashboardBack").href = `character.html?id=${encodeURIComponent(character.id)}`;
   document.querySelector("#dashboardPortrait").innerHTML = `<img src="${character.image}" alt="${character.name}">`;
   document.querySelector("#dashboardNotes").value = activeSheet.notes || "";
 
+  renderVitals();
   renderStats();
   renderResources();
   renderWeapons();
@@ -106,6 +158,16 @@ function collectDashboard() {
   document.querySelectorAll("#resourceEditor [data-field]").forEach((input) => {
     activeSheet.resources[input.dataset.field] = Number(input.value);
   });
+
+  document.querySelectorAll("[data-meta-field]").forEach((input) => {
+    activeSheet.meta[input.dataset.metaField] = input.value.trim();
+  });
+
+  const armourValues = parseArmour(activeSheet.meta.armour);
+  document.querySelectorAll("[data-armour-location]").forEach((input) => {
+    armourValues[input.dataset.armourLocation] = input.value.trim() || "0";
+  });
+  activeSheet.meta.armour = formatArmour(armourValues);
 
   document.querySelectorAll("[data-weapon]").forEach((input) => {
     activeSheet.weapons[Number(input.dataset.weapon)][input.dataset.weaponField] = input.value;
