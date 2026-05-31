@@ -490,53 +490,132 @@ h2 {
 
 .armour-panel {
   display: grid;
+  position: relative;
+  min-height: 15rem;
+  overflow: hidden;
   grid-template-columns: 1fr 0.9fr 1fr;
   grid-template-areas:
-    ". title ."
+    "title title title"
     ". head ."
-    "arms body body"
-    ". legs .";
+    "right-arm body left-arm"
+    "right-leg . left-leg";
   gap: 0.5rem;
+  background:
+    linear-gradient(90deg, rgba(176, 138, 70, 0.08), transparent 25%, transparent 75%, rgba(176, 138, 70, 0.08)),
+    radial-gradient(circle at 50% 38%, rgba(176, 138, 70, 0.12), transparent 48%),
+    rgba(9, 9, 8, 0.62);
 }
 
 .armour-title {
   grid-area: title;
+  position: relative;
+  z-index: 2;
   text-align: center;
+}
+
+.armour-silhouette {
+  position: absolute;
+  inset: 2.2rem 31% 0.7rem;
+  opacity: 0.46;
+  pointer-events: none;
+}
+
+.armour-silhouette::before,
+.armour-silhouette::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, rgba(176, 138, 70, 0.42), rgba(38, 33, 25, 0.92));
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.55);
+}
+
+.armour-silhouette::before {
+  top: 0;
+  width: 3.2rem;
+  height: 3.2rem;
+  border-radius: 48% 48% 42% 42%;
+}
+
+.armour-silhouette::after {
+  top: 2.7rem;
+  width: 5.8rem;
+  height: 10.8rem;
+  border-radius: 44% 44% 26% 26%;
+  clip-path: polygon(20% 0, 80% 0, 100% 24%, 76% 58%, 70% 100%, 52% 100%, 50% 67%, 48% 100%, 30% 100%, 24% 58%, 0 24%);
 }
 
 .armour-node {
   display: grid;
-  gap: 0.3rem;
+  position: relative;
+  z-index: 2;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    "code input"
+    "range input";
+  gap: 0 0.45rem;
+  align-items: center;
   min-width: 0;
-  padding: 0.55rem;
-  border: 1px solid rgba(176, 138, 70, 0.32);
-  border-radius: 7px;
-  background: linear-gradient(180deg, rgba(176, 138, 70, 0.16), rgba(17, 16, 13, 0.88));
-  text-align: center;
+  padding: 0.38rem;
+  border: 1px solid rgba(176, 138, 70, 0.45);
+  border-radius: 4px;
+  background:
+    linear-gradient(90deg, rgba(61, 18, 18, 0.92) 0 42%, rgba(238, 231, 206, 0.94) 42%),
+    rgba(17, 16, 13, 0.88);
+  text-align: left;
+  box-shadow: 0 0.4rem 1rem rgba(0, 0, 0, 0.32);
 }
 
 .armour-node.head {
   grid-area: head;
-  border-radius: 999px 999px 7px 7px;
 }
 
-.armour-node.arms {
-  grid-area: arms;
+.armour-node.right-arm {
+  grid-area: right-arm;
+}
+
+.armour-node.left-arm {
+  grid-area: left-arm;
 }
 
 .armour-node.body {
   grid-area: body;
-  min-height: 5rem;
-  align-content: center;
 }
 
-.armour-node.legs {
-  grid-area: legs;
+.armour-node.right-leg {
+  grid-area: right-leg;
+}
+
+.armour-node.left-leg {
+  grid-area: left-leg;
+}
+
+.armour-code {
+  grid-area: code;
+  color: var(--text) !important;
+  font-family: Georgia, serif !important;
+  font-size: 1.08rem !important;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.armour-range {
+  grid-area: range;
+  color: var(--text) !important;
+  font-size: 0.58rem !important;
+  line-height: 1;
 }
 
 .armour-node input {
+  grid-area: input;
+  min-height: 2.1rem;
+  border-color: rgba(61, 18, 18, 0.22);
+  background: rgba(255, 252, 238, 0.88);
+  color: #273140;
   text-align: center;
   font-weight: 800;
+  font-size: 1.25rem;
+  padding: 0.25rem;
 }
 
 .dashboard-help {

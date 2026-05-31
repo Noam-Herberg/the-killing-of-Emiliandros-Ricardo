@@ -39,29 +39,61 @@ function renderResources() {
 }
 
 function parseArmour(armourText) {
-  const values = { Head: "", Arms: "", Body: "", Legs: "" };
+  const values = { Head: "", "Right Arm": "", "Left Arm": "", Body: "", "Right Leg": "", "Left Leg": "" };
+  const aliases = {
+    head: ["Head"],
+    h: ["Head"],
+    arms: ["Right Arm", "Left Arm"],
+    arm: ["Right Arm", "Left Arm"],
+    ar: ["Right Arm"],
+    "right arm": ["Right Arm"],
+    al: ["Left Arm"],
+    "left arm": ["Left Arm"],
+    body: ["Body"],
+    b: ["Body"],
+    legs: ["Right Leg", "Left Leg"],
+    leg: ["Right Leg", "Left Leg"],
+    lr: ["Right Leg"],
+    "right leg": ["Right Leg"],
+    ll: ["Left Leg"],
+    "left leg": ["Left Leg"]
+  };
+
   String(armourText || "")
     .split(",")
     .map((part) => part.trim())
     .forEach((part) => {
-      const match = part.match(/^(Head|Arms|Body|Legs)\s+(.+)$/i);
+      const match = part.match(/^([A-Za-z ]+)\s+(.+)$/);
       if (!match) {
         return;
       }
-      const key = Object.keys(values).find((location) => location.toLowerCase() === match[1].toLowerCase());
-      values[key] = match[2].trim();
+      const locations = aliases[match[1].trim().toLowerCase()];
+      if (!locations) {
+        return;
+      }
+      locations.forEach((location) => {
+        values[location] = match[2].trim();
+      });
     });
   return values;
 }
 
 function formatArmour(values) {
-  return ["Head", "Arms", "Body", "Legs"]
+  return ["Head", "Right Arm", "Left Arm", "Body", "Right Leg", "Left Leg"]
     .map((location) => `${location} ${values[location] || 0}`)
     .join(", ");
 }
 
 function renderVitals() {
   const armour = parseArmour(activeSheet.meta.armour);
+  const locations = [
+    { key: "Head", code: "H", range: "01-10", className: "head" },
+    { key: "Right Arm", code: "AR", range: "11-20", className: "right-arm" },
+    { key: "Left Arm", code: "AL", range: "21-30", className: "left-arm" },
+    { key: "Body", code: "B", range: "31-70", className: "body" },
+    { key: "Right Leg", code: "LR", range: "71-85", className: "right-leg" },
+    { key: "Left Leg", code: "LL", range: "86-00", className: "left-leg" }
+  ];
   document.querySelector("#dashboardVitals").innerHTML = `
     <label class="movement-panel">
       <span>Movement</span>
@@ -69,22 +101,18 @@ function renderVitals() {
     </label>
     <div class="armour-panel" aria-label="Armour by body location">
       <span class="armour-title">Armour</span>
-      <label class="armour-node head">
-        <span>Head</span>
-        <input data-armour-location="Head" type="number" min="0" value="${armour.Head}">
-      </label>
-      <label class="armour-node arms">
-        <span>Arms</span>
-        <input data-armour-location="Arms" type="number" min="0" value="${armour.Arms}">
-      </label>
-      <label class="armour-node body">
-        <span>Body</span>
-        <input data-armour-location="Body" type="number" min="0" value="${armour.Body}">
-      </label>
-      <label class="armour-node legs">
-        <span>Legs</span>
-        <input data-armour-location="Legs" type="number" min="0" value="${armour.Legs}">
-      </label>
+      <div class="armour-silhouette" aria-hidden="true"></div>
+      ${locations
+        .map(
+          (location) => `
+            <label class="armour-node ${location.className}">
+              <span class="armour-code">${location.code}</span>
+              <span class="armour-range">${location.range}</span>
+              <input data-armour-location="${location.key}" type="number" min="0" value="${armour[location.key]}">
+            </label>
+          `
+        )
+        .join("")}
     </div>
   `;
 }
