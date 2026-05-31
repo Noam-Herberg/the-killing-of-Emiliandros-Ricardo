@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Requias Sector One-Shot - Core Rules Reminder</title>
-    <link rel="stylesheet" href="styles.css?v=20260530-dashboard">
+    <link rel="stylesheet" href="styles.css?v=20260531-rules">
   </head>
   <body>
     <header class="site-header compact">
@@ -27,9 +27,9 @@
           <h2>Skill Tests</h2>
           <ul>
             <li>Pick the most relevant characteristic or trained skill.</li>
-            <li>Apply situational modifiers before rolling.</li>
+            <li>Easy +30, Routine +20, Ordinary +10, Challenging +0, Difficult -10, Hard -20, Very Hard -30.</li>
             <li>Roll d100. Equal to or below the target succeeds.</li>
-            <li>Each full 10 by which you pass or fail is one degree.</li>
+            <li>Each full 10 by which you pass or fail is one degree. Example: target 45, roll 23 = 2 degrees of success.</li>
           </ul>
         </article>
 
@@ -38,8 +38,8 @@
           <ul>
             <li>Half Move: move up to your Half Move value and still take another Half Action.</li>
             <li>Full Move: spend your whole turn moving up to your Full Move value.</li>
-            <li>Charge: move in a straight enough line and make one melee attack.</li>
-            <li>Run: move far, but you become easier to hit until your next turn.</li>
+            <li>Charge: Full Action, move up to Charge distance and make one melee attack at +20 WS.</li>
+            <li>Run: Full Action, move up to Run distance. Ranged attacks against you suffer -20; melee attacks against you gain +20 until your next turn.</li>
           </ul>
         </article>
 
@@ -47,9 +47,10 @@
           <h2>Actions</h2>
           <ul>
             <li>On your turn you usually get either two Half Actions or one Full Action.</li>
-            <li>Common Half Actions: Aim, Move, Standard Attack, Ready, Reload, Stand.</li>
-            <li>Common Full Actions: Full Move, Run, Charge, All Out Attack, some reloads.</li>
-            <li>Reactions, such as Dodge or Parry, happen outside your turn when triggered.</li>
+            <li>Half Actions: Half Aim, Half Move, Standard Attack, Ready, Stand, many reloads.</li>
+            <li>Full Actions: Full Aim, Full Move, Run, Charge, All Out Attack, Suppressing Fire, some reloads.</li>
+            <li>Free Actions: short speech, dropping an item, some talents and powers.</li>
+            <li>Reactions: usually one per round, commonly Dodge or Parry after being hit.</li>
           </ul>
         </article>
 
@@ -57,9 +58,10 @@
           <h2>Shooting</h2>
           <ul>
             <li>Roll Ballistic Skill, modified by range, cover, aiming, lighting, and firing mode.</li>
-            <li>Short range is easier; long range is harder.</li>
-            <li>Half Aim gives a small bonus; Full Aim gives a larger bonus.</li>
-            <li>Semi-auto and full-auto can score extra hits with enough degrees of success.</li>
+            <li>Point Blank +30, Short Range +10, Long Range -10, Extreme Range -30.</li>
+            <li>Half Aim +10. Full Aim +20. Called Shot -20.</li>
+            <li>Standard Attack +10. Semi-Auto Burst +0 and can add extra hits with degrees of success. Full Auto Burst -10 and can add more extra hits.</li>
+            <li>Target in cover, darkness, smoke, melee, or bad weather usually means a penalty or blocked shot.</li>
           </ul>
         </article>
 
@@ -68,8 +70,9 @@
           <ul>
             <li>Roll Weapon Skill to hit in close combat.</li>
             <li>Targets may be able to Dodge or Parry if they have a reaction available.</li>
-            <li>Charge improves your attack and gets you into contact.</li>
-            <li>All Out Attack hits harder but prevents defensive reactions.</li>
+            <li>Standard Attack +10. Charge +20. All Out Attack +30, but you cannot Dodge or Parry until your next turn.</li>
+            <li>Defensive Stance gives enemies -20 to hit you in melee but limits your aggression.</li>
+            <li>Ganging up helps: outnumbering a target in melee usually gives attackers a bonus.</li>
           </ul>
         </article>
 
@@ -77,19 +80,32 @@
           <h2>Damage</h2>
           <ul>
             <li>Roll weapon damage, add bonuses listed on the weapon, then subtract Toughness Bonus and armour.</li>
-            <li>Penetration reduces the armour that applies.</li>
+            <li>Penetration reduces the armour that applies. Example: AP 4 hit by Pen 2 counts as AP 2.</li>
             <li>Damage after reduction comes off Wounds.</li>
-            <li>When Wounds run out, further damage causes critical effects.</li>
+            <li>If Wounds hit 0, further damage causes Critical Damage based on damage type and hit location.</li>
+            <li>Righteous Fury: if a player rolls a natural 10 on damage, check for extra effect at the GM's call.</li>
           </ul>
         </article>
 
         <article class="rule-card">
           <h2>Cover & Armour</h2>
           <ul>
-            <li>Cover can make you harder to hit or absorb damage, depending on the situation.</li>
+            <li>Cover has armour points of its own. If the shot passes through cover, subtract cover AP before damage reaches the target.</li>
             <li>Armour protects specific body locations.</li>
-            <li>If hit location matters, reverse the attack roll digits to find the location.</li>
-            <li>Primitive, Shocking, Toxic, Tearing, and other qualities change how attacks resolve.</li>
+            <li>Hit location: reverse the attack roll digits. 01-10 Head, 11-20 Right Arm, 21-30 Left Arm, 31-70 Body, 71-85 Right Leg, 86-00 Left Leg.</li>
+            <li>If a target is partly hidden, only exposed locations can be hit unless the attack punches through cover.</li>
+          </ul>
+        </article>
+
+        <article class="rule-card">
+          <h2>Common Qualities</h2>
+          <ul>
+            <li>Reliable: jams less often. Unreliable: jams more often.</li>
+            <li>Accurate: rewards aiming and good shots, often with extra damage at range.</li>
+            <li>Scatter: stronger at very close range, weaker at longer range.</li>
+            <li>Shocking: target may be stunned if they fail Toughness.</li>
+            <li>Tearing: roll an extra damage die and keep the better result.</li>
+            <li>Toxic: target may suffer poison after being wounded.</li>
           </ul>
         </article>
 
