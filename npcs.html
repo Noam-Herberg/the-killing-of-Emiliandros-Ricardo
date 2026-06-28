@@ -3,44 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Requias Sector One-Shot - NPC Stats</title>
-    <link rel="stylesheet" href="styles.css?v=20260530-dashboard">
+    <meta http-equiv="refresh" content="0; url=modules/ricardo/npcs.html">
+    <title>Redirecting to Ricardo NPC Stats</title>
+    <script>location.replace("modules/ricardo/npcs.html" + location.search + location.hash);</script>
   </head>
-  <body>
-    <header class="site-header compact">
-      <div>
-        <p class="eyebrow">GM Only</p>
-        <h1>NPC Stats</h1>
-      </div>
-      <div class="header-button-row">
-        <a class="button secondary" href="gm.html">Back to GM Notes</a>
-        <a class="button secondary" href="selection.html">Back to Selection</a>
-      </div>
-    </header>
-
-    <main class="gm-layout">
-      <section class="gm-gate section-block" id="npcGate">
-        <p class="eyebrow">Restricted File</p>
-        <h2>Enter GM password</h2>
-        <form class="password-form" id="npcPasswordForm">
-          <label for="npcPassword">Password</label>
-          <input id="npcPassword" type="password" autocomplete="current-password">
-          <button class="button" type="submit">Unlock NPC Stats</button>
-          <p class="gate-error" id="npcError" hidden>Incorrect password.</p>
-        </form>
-      </section>
-
-      <section class="npc-page" id="npcStats" hidden>
-        <div class="section-block secret">
-          <p class="eyebrow">Enemy Reference</p>
-          <h2>Ricardo Affair NPC Roster</h2>
-          <p>Compact Dark Heresy 2e-style stat blocks for running the scenario. Edit `npcs.js` to add portraits, stats, weapons, clues, and notes for more NPCs.</p>
-        </div>
-
-        <section class="npc-grid" id="npcGrid" aria-label="NPC stat blocks"></section>
-      </section>
-    </main>
-
-    <script src="npcs.js?v=20260530-dashboard"></script>
-  </body>
+  <body><p><a href="modules/ricardo/npcs.html">Open Ricardo NPC stats</a></p></body>
 </html>
